@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>W3Schools Tabs</title>
+
+	<style>		
+	#corner-image{grid-area: corner-image;}
+	#corner-description{grid-area: corner-description;}
+	#projects-articles{grid-area: projects-articles}
+	.tabcontent{display: grid !important; grid-template-columns: 2fr 3fr; grid-template-areas: "corner-image corner-description" "projects-articles projects-articles"; grid-gap: 50px;}
+		
+	@media(max-width: 991.98px){
+		.tabcontent{display: grid; grid-template-columns: 1fr; grid-template-areas: "corner-image" "corner-description" "projects-articles"; grid-gap: 20px;}
+	}
+	
+	/*projects-articles*/
+	#post-date::before{content: " "; display: inline-block; border: 1px solid orange; width: 30px; vertical-align: middle; margin-right: 5px;}
+	#post-title a{font-size: 20px; font-family: 'Georgia'; text-decoration: none;}
+    	#post-1{grid-area: post-1; padding: 50px; background: white; border: 1px solid #ccc; min-height: 300px;}
+	#post-2{grid-area: post-2; padding: 50px; background: white; border: 1px solid #ccc; min-height: 300px;}
+	#post-3{grid-area: post-3; padding: 50px; background: white; border: 1px solid #ccc; min-height: 300px;}
+	.featured-posts{display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-areas: "post-1 post-2 post-3"; grid-gap: 30px;}
+	
+	@media(max-width: 991.98px){
+		.featured-posts{display: grid; grid-template-columns: 1fr; grid-template-areas: "post-1" "post-2" "post-3"; grid-gap: 10px;}
+	}
+		
+	#project-category a{text-decoration: none; padding: 10px;}
+	</style>
+</head>
+
+<body>
+
+     	
+	<div>
+		<div class="container">
+			<div style="line-height: 50px; margin-top: 50px;">
+				<center>
+					<div id="project-category">
+						<a href="javascript:void(0);" class="tablink" onclick="openTab(event, 'data-analysis');" id="default">Data Analysis</a>
+						<a href="javascript:void(0);" class="tablink" onclick="openTab(event, 'database');">Relational Databases</a>
+						<a href="javascript:void(0);" class="tablink" onclick="openTab(event, 'modelling');">Spreadsheet Modelling</a>
+					</div>
+				</center>
+			</div>
+		</div>
+		<div id="data-analysis" class="tabcontent container" style="background: white;">
+			<div id="corner-image">
+				<img src="https://prod-discovery.edx-cdn.org/media/course/image/ca069c90-360c-4ec0-9d60-ae8ff53ce429-5fea7b5cf9e7.small.png" style="width: 100%; height: auto; object-fit: contain;">
+			</div>
+			<div id="corner-description">
+					<h3>Data Analysis with R and Python</h3>
+					<p>
+					Data is becoming increasingly important. We're producing data every day. By analysing the data that customers produce, companies can provide 
+					better, personalised products and services. 
+					<br><br> 
+
+					Data can be quantitative or qualitative, which may include numbers, texts, images, audios, and videos. Whether you run an e-commerce website or a social media application, you need this data as well as the appropriate technologies to
+					get to know your customers and make the most out of your data pipeline. 
+					<br><br>
+
+					R and Python are popular programming languages for data science. I've learned them both in college. I aspire to become a business intelligence analyst or a data scientist. Therefore, my research includes data
+					analysis with R and Python. I will learn the basics of these tools, use them to analyse and visualise different types of data, and build machine
+					learning models with existing open-source or in-house frameworks and libraries.
+					<br><br>
+					</p>
+			</div>
+			<div id="projects-articles">
+				<h1 style="font-family: 'Georgia';">Projects & Articles</h1>
+					<div class="featured-posts">
+						<div id="post-1">
+							<div id="post-date">JULY 4, 2021</div><br><br>
+							<div id="post-title">
+								<a href="https://github.com/mrlizhaozhi/statistical-learning-with-applications-in-r/">
+									Statistical Learning with Applications in R  
+									<br><br>
+									<span style="text-transform: uppercase; font-size: 16px; font-family: 'Arial', sans-serif;">Read More</span>
+								</a>
+							</div>
+						</div>
+
+						<div id="post-2">
+							<div id="post-date">JULY 4, 2021</div><br><br>
+							<div id="post-title">
+								<a href="https://github.com/mrlizhaozhi/python-crash-course">
+									Python Crash Course 
+									<br><br>
+									<span style="text-transform: uppercase; font-size: 16px; font-family: 'Arial', sans-serif;">Read More</span>
+								</a>
+							</div>
+						</div>
+
+						<div id="post-3">
+							<div id="post-date">JULY 4, 2021</div><br><br>
+							<div id="post-title">
+								<a href="https://github.com/mrlizhaozhi/python-for-data-visualisation">
+									Python for Data Visualisation
+									<br><br>
+									<span style="text-transform: uppercase; font-size: 16px; font-family: 'Arial', sans-serif;">Read More</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div style="height: 50px;"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="database" class="tabcontent container" style="background: white;">
+			<div id="corner-image">
+				<img src="https://s7280.pcdn.co/wp-content/uploads/2016/06/database-blue.png" style="width: 100%; height: auto; object-fit: contain;">
+			</div>
+			<div id="corner-description">
+				<h3>Relational Database with SQL</h3>
+				<p>
+					In order to acquire data from customers, businesses need databases to store and manipulate data. 
+					<br><br>
+					
+					Relational databases are the most common type of database structure. Popular database systems such as Oracle, MySQL, and Microsoft SQL
+					Server, etc. all use relational	models to store data. 
+					<br><br>
+					
+					As data continue to expand and evolve, we need more sophisticated technology to process <i>Big Data</i>. My research includes database
+					systems and the SQL language, which can be used as a Data Definition Language (DDL) and a Data Maniplulation Language (DML).
+					<br><br>
+				</p>
+			</div>
+			<div id="projects-articles">
+				<h1 style="font-family: 'Georgia';">Projects & Articles</h1>
+					<div class="featured-posts">
+						<div id="post-1">
+							<div id="post-date">JULY 4, 2021</div><br><br>
+							<div id="post-title">
+								<a href="github.com/mrlizhaozhi/relational-database-with-sql/">
+									Relational Database with SQL  
+									<br><br>
+									<span style="text-transform: uppercase; font-size: 16px; font-family: 'Arial', sans-serif;">Read More</span>
+								</a>
+							</div>
+						</div>
+
+						<div id="post-2">
+							<div id="post-date">JULY 4, 2021</div><br><br>
+							<div id="post-title">
+								<a href="github.com/mrlizhaozhi/article-navigation-with-php-and-sql/">
+									Article Navigation with PHP and SQL  
+									<br><br>
+									<span style="text-transform: uppercase; font-size: 16px; font-family: 'Arial', sans-serif;">Read More</span>
+								</a>
+							</div>
+						</div>
+
+						<div id="post-3">
+							<div id="post-date">JUNE 26, 2021</div><br><br>
+							<div id="post-title">
+								<a href="https://mrlizhaozhi.github.io/blogs/2021-06/2021-06-26-discussion-artificial-intelligence-employment-and-future.pdf">
+									Discussion: Artificial Intelligence, Employment, and Our Future
+									<br><br>
+									<span style="text-transform: uppercase; font-size: 16px; font-family: 'Arial', sans-serif;">Read More</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div style="height: 50px;"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="modelling" class="tabcontent container" style="background: white;">
+			<div id="corner-image" style="margin: 0;">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtmY4brD_aGuwWIowUwEb5pNUu9LLZomvawI34OxDO4-N7ERan-dR1kOJ2_0-M--UO-9A&usqp=CAU" style="width: 100%; height: auto; object-fit: contain;">
+			</div>
+			<div id="corner-description">
+				<h3>Spreadsheet Modelling with VBA</h3>
+				<p>
+					Spreadsheets have a long history and will remain relevant despite the emergence of databases due to its ease of use and understanding.
+					Every person who have attended school should have learned spreadsheets in an information technology class. 
+					<br><br>
+					
+					Excel remains the most popular spreadsheet software that companies expect every employee to understand how to use spreadsheets to document
+					information and perform calculations. Financial and data analysts use Excel and VBA to build interactive spreadsheet models to perform 
+					repetitive analyses.
+					<br><br>
+					
+					I'm learning to use Excel and VBA to build interactive data models. These models can be used to assess investment projects at personal
+					and corporate scales.
+					<br><br>
+				</p>
+			</div>
+			<div id="projects-articles">
+				<h1 style="font-family: 'Georgia';">Projects & Articles</h1>
+					<div class="featured-posts">
+						<div id="post-1">
+							<div id="post-date">JULY 4, 2021</div><br><br>
+							<div id="post-title">
+								<a href="github.com/mrlizhaozhi/excel-vba-for-spreadsheet-modelling/">
+									Excel VBA for Spreadsheet Modelling  
+									<br><br>
+									<span style="text-transform: uppercase; font-size: 16px; font-family: 'Arial', sans-serif;">Read More</span>
+								</a>
+							</div>
+						</div>
+
+						<div id="post-2">
+							<div id="post-date">JUNE 28, 2021</div><br><br>
+							<div id="post-title">
+								<a href="https://mrlizhaozhi.github.io/blogs/2021-06/2021-06-28-fact-sheet-assigning-driver-license-test-prep-the-highest-priority.pdf">
+									 Fact Sheet: Assigning Driver License Test Prep the Highest Priority  
+									<br><br>
+									<span style="text-transform: uppercase; font-size: 16px; font-family: 'Arial', sans-serif;">Read More</span>
+								</a>
+							</div>
+						</div>
+
+						<div id="post-3">
+							<div id="post-date">JUNE 26, 2021</div><br><br>
+							<div id="post-title">
+								<a href="https://mrlizhaozhi.github.io/blogs/2021-06/2021-06-26-discussion-artificial-intelligence-employment-and-future.pdf">
+									Discussion: Artificial Intelligence, Employment, and Our Future
+									<br><br>
+									<span style="text-transform: uppercase; font-size: 16px; font-family: 'Arial', sans-serif;">Read More</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div style="height: 50px;"></div>
+			</div>
+
+
+	
+	<!--custom JS-->
+	<script>	
+		function openTab(event, TabName){
+			var i, tablink, tabcontent;
+			tablink = document.getElementsByClassName('tablink');
+			for(i = 0; i < tablink.length; i++){
+				tablink[i].className = tablink[i].className.replace(" active", "");
+			}
+			tabcontent = document.getElementsByClassName('tabcontent');
+			for(i = 0; i < tabcontent.length; i++){
+				/*tabcontent[i].style.display = "none";*/
+				tabcontent[i].style.setProperty("display", "none", "important");
+			}
+			document.getElementById(TabName).style.display = "block";
+			event.currentTarget.className += " active";
+		}
+		document.getElementById('default').click();
+
+	</script>
+</body>
+</html>
