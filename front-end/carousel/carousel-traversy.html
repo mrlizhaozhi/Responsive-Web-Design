@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title> Carousel - Traversy Media</title>
+	<style>
+	.slide-show{background: #424248; padding: 10px 10px; width: 100%; min-height: 450px;}
+	.imageShow{width: 100%; height: 500px; object-fit: contain;}
+		
+	@media(max-width: 991.98px){
+		.slide-show{background: #424248; padding: 10px 0; display: block;}
+		.imageShow{width: 100%; height: 350px; object-fit: contain;}
+	}
+	</style>
+</head>
+
+<body>
+
+	<div class="slide-show">
+		<h3 style="text-align: center; color: white;">Marquette Corners</h3>	
+		<img class="imageShow" src="https://mrlizhaozhi.github.io//img/amu.png">
+		<center>
+			<a href="javascript:void(0);" onclick="prev();" style="margin: 10px; padding: 10px; background: orange; display: inline-block; text-decoration: none;"><</a>
+			<a href="javascript:void(0);" onclick="next();" style="margin: 10px; padding: 10px; background: orange; display: inline-block; text-decoration: none;">></a>
+		</center>
+	</div>
+    
+	
+  <!--custom JS-->
+	<script>	
+		var imageShow = document.querySelector('.imageShow');
+		var images = [];
+		var i = 0;
+
+		images[0] = 'https://mrlizhaozhi.github.io/img/amu.png';
+		images[1] = 'https://mrlizhaozhi.github.io/img/language.png';
+		images[2] = 'https://mrlizhaozhi.github.io/img/library.png';
+		images[3] = 'https://mrlizhaozhi.github.io/img/study.png';
+
+		function prev(){
+			if(i <= 0){i = images.length;}
+			i--;
+			return showImage();
+		}
+
+		function next(){
+			if(i >= images.length - 1){i = -1;}
+			i++;
+			return showImage();
+		}
+
+		function showImage(){
+			return imageShow.setAttribute('src', images[i]);
+		}
+	</script>
+</body>
+</html>
