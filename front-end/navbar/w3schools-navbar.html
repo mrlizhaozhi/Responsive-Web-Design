@@ -1,0 +1,71 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>W3Schools Navbar</title>
+	<style>
+		.container{padding: 10px 50px; max-width: 1250px; margin: 0 auto;}
+		.nav{height: 100%;}
+		.nav a{text-decoration: none; color: white !important;}
+		.nav a:hover{color: grey !important;}
+		#logo{vertical-align: middle; width: auto; height: 80px; margin-bottom: -65px;}
+		#navbutton{display:none;}
+		/*nav items on desktop*/
+		#nav-items {vertical-align: middle; text-align: right; padding-left: 0;}
+		#nav-items li{display: inline; list-style-type: none; padding: 5px 20px;}
+		.collapse{margin: 0; overflow-y: hidden; background: #0a314d;}
+
+		@media (max-width: 991.98px){ 
+			.container{padding: 0 30px; max-width: 991.98px;}
+
+			/*####################################################*/
+			/*navbar*/
+			#nav-items {text-align: left;}
+			#nav-items li{display: block; padding: 10px 10px; }
+			#logo{margin: 10px 0; height: 50px; width: auto;}
+			#navbutton{display: inline; float: right; right: 10px; position: absolute;}
+			.collapse{overflow-y: hidden; display: block; background: #0a314d; max-height: 0; transition: max-height 0.5s ease-in-out;}
+			.collapse.show{overflow-y: hidden; max-height: 500px;}
+			#icon{margin: 10px 0;}
+
+			
+		}
+
+	</style>
+</head>
+<body>
+	<!--responsive top navbar-->
+	<div class="nav">
+		<div style="background: #062135;">
+			<div class="container">
+				<a href="https://mrlizhaozhi.github.io/"><img src="https://mrlizhaozhi.github.io/img/signature.png" id="logo" alt="site logo"></a>
+				<a href="#" id="navbutton" onclick="nav();">
+					<img src="https://icon-library.com/images/white-menu-icon/white-menu-icon-12.jpg" width="auto" height="50px;" id="icon">
+				</a>
+			</div>
+		</div>
+		<div id="mobinav" class="collapse">
+			<div class="container">
+				<ul id="nav-items">
+					<li><a href="https://mrlizhaozhi.github.io/about/">ABOUT</a></li>
+					<li><a href="https://mrlizhaozhi.github.io/research/">RESEARCH</a></li>
+					<li><a href="https://mrlizhaozhi.github.io/projects/">PROJECTS</a></li>
+					<li><a href="https://mrlizhaozhi.github.io/uploads/Li_Zhaozhi_Resume.pdf">RESUME</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		//responsive top navbar
+		function nav() {
+			var mobinav = document.getElementById("mobinav");
+			if(mobinav.className === "collapse"){
+				mobinav.className += " show";
+			}
+			else{
+				mobinav.className = "collapse";
+			}
+		}
+	</script>
+</body>
+</html>
