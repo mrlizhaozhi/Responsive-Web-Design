@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Responsive Hierarchical Full-Screen Top Navigation Bar</title>
+	<style type="text/css">
+		html, body{margin: 0px; padding: 0px;width: 100%; height: 100%;}
+		*, *::before, *::after{box-sizing: border-box;}
+		.container{padding: 10px 50px; max-width: 1250px; margin: 0 auto;}
+		nav{width: 100%; height: 100vh; top: 0; z-index: 10;}
+
+		/*navbar-shown*/
+		#navbar-shown{width: 100%; display: inline-block; background: #0a314d;}
+		#open-menu{width: 80px; height:  auto; vertical-align: middle;  display: inline;}
+		#site-logo{width: 100px; height:  auto; vertical-align: middle;}
+		#nav-topics {display: inline-block;}
+		#nav-topics li{display: inline;}
+		#nav-topics a{color: white; text-decoration: none; text-transform:  uppercase; margin-right: 15px; font-size: 14px;}
+		#nav-topics a:hover{color: grey;}
+
+		/*navbar-hidden*/
+		#nav-hidden-left{grid-area: nav-hidden-left;}
+		#nav-hidden-left ul{list-style-type: none;}
+		#nav-hidden-left li{padding-bottom: 20px;}
+		#nav-hidden-left a{color: white; text-decoration: none;}
+		#nav-hidden-left a:hover{color: grey;}
+
+		#nav-hidden-right{grid-area: nav-hidden-right;}
+		#nav-hidden-right ul{list-style-type: none;}
+		#nav-hidden-right li{padding-bottom: 20px; color: white;}
+		#nav-hidden-right a{color: white; text-decoration: none;}
+		#nav-hidden-right a:hover{color: grey;}
+		#nav-hidden-right h3{color: white; font-family: 'Georgia';}
+
+		#nav-hidden-items{display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: "nav-hidden-left nav-hidden-right";}
+
+		#navbar-hidden{width: 100%; height: 100%; padding: 5px; background: #0a314d;}
+		#navbar-hidden.collapse{display: none;}
+		#navbar-hidden.display {display: block;}
+		body.static{position: static;}
+		body.fixed{position: fixed;}
+
+		@media(max-width: 991.98px){
+			#navbar-hidden.collapse {display: none;}
+			#navbar-hidden.mobile{display: block;}
+			body.static{position: static;}
+			body.mobile{position: fixed;}
+			.container{padding: 0 30px; max-width: 991.98px;}
+			#nav-topics{display: none;}
+			#navbar-shown{padding: 5px;}
+			#site-logo{width: auto; height: 50px;}
+			#open-menu{width: auto; height: 50px; float: right;}
+			#nav-hidden-items{display: grid; grid-template-columns: 1fr; grid-template-areas: "nav-hidden-left";}
+		}
+
+	</style>
+</head>
+<body>
+	<nav>
+		<div id="navbar-shown">
+			<div class="container">
+				<a href="javascript:void(0);" onclick="openNav();">
+					<img id="open-menu" alt="Open Menu" src="media/img/nav-icon.png">
+				</a>
+				<img id="site-logo" alt="Site Logo" src="media/img/logo.png">
+				<ul id="nav-topics">
+					<li><a href="topics/data-analysis">Data Analysis</a></li>
+					<li><a href="topics/relational-databases">Relational Databases</a></li>
+					<li><a href="topics/spreadsheet-modelling">Spreadsheet Modelling</a></li>
+					<li><a href="topics/project-management">Project Management</a></li>
+					<li><a href="topics/web-development">Web Development</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="navbar-hidden" class="collapse">
+			<div class="container">
+				<div id="nav-hidden-items">
+					<div id="nav-hidden-left">
+						<ul id="topic-list">
+							<li><a href="javascript:void(0);" class="tablinks" onclick="openTab(event, 'data-analysis');" id="default">Data Analysis</a></li>
+							<li><a href="javascript:void(0);" class="tablinks" onclick="openTab(event, 'relational-databases');">Relational Databases</a></li>
+							<li><a href="javascript:void(0);" class="tablinks" onclick="openTab(event, 'spreadsheet-modelling');">Spreadsheet Modelling</a></li>
+							<li><a href="javascript:void(0);" class="tablinks" onclick="openTab(event, 'project-management');">Project Management</a></li>
+							<li><a href="javascript:void(0);" class="tablinks" onclick="openTab(event, 'web-development');">Web Development</a></li>
+						</ul>
+					</div>
+					<div id="nav-hidden-right">
+						<a href="javascript:void(0);" id="backnav" onclick="backNav();">Back</a>
+						<div id="data-analysis" class="tabcontent">
+							<ul>
+								<li><h3>Data Analysis</h3></li>
+								<li><a href="https://github.com/mrlizhaozhi/python-crash-course">Python Crash Course</a></li>
+								<li><a href="https://github.com/mrlizhaozhi/python-for-data-visualisation">Python for Data Visualisation</a></li>
+								<li><a href="https://github.com/mrlizhaozhi/statistical-learning-with-applications-in-r">Statistical Learning with Applications in R</a></li>
+							</ul>
+						</div>
+						<div id="relational-databases" class="tabcontent">
+							<ul>
+								<li><h3>Relational Databases</h3></li>
+								<li><a href="https://github.com/mrlizhaozhi/relational-database-with-sql">Relational Database with SQL</a></li>
+							</ul>
+						</div>
+						<div id="spreadsheet-modelling" class="tabcontent">
+							<ul>
+								<li><h3>Spreadsheet Modelling</h3></li>
+								<li><a href="https://mrlizhaozhi.github.io/research/github.com/mrlizhaozhi/excel-vba-for-spreadsheet-modelling/">Excel VBA for Spreadsheet Modelling</a></li>
+							</ul>
+						</div>
+						<div id="project-management" class="tabcontent">
+							<ul>
+								<li><h3>Project Management</h3></li>
+								<li>Coming Soon...</li>
+							</ul>
+						</div>
+						<div id="web-development" class="tabcontent">
+							<ul>
+								<li><h3>Web Development</h3></li>
+								<li><a href="https://github.com/mrlizhaozhi/mrlizhaozhi.github.io">The Official Website of Li Zhaozhi</a></li>
+								<li><a href="https://github.com/mrlizhaozhi/mrlizhaozhi.github.io/tree/main/research">Li Zhaozhi Research Laboratories</a></li>
+								<li><a href="https://github.com/mrlizhaozhi/responsive-web-design/tree/main/front-end">Responsive Web Design: Front End</a></li>
+								<li><a href="https://github.com/mrlizhaozhi/responsive-web-design/tree/main/back-end">Responsive Web Design: Back End</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div style="height: 100vh;"></div>
+
+	<script type="text/javascript">
+		function openNav(){
+			var navbarHidden = document.getElementById("navbar-hidden");
+
+			if(window.matchMedia("(max-width: 991.98px)").matches){
+				document.getElementById('nav-hidden-right').style.display = 'none';
+				document.getElementById('nav-hidden-left').style.display = 'block';
+				document.getElementById('nav-hidden-items').style.gridTemplateAreas = '"nav-hidden-left"';
+				document.getElementById('backnav').style.display = 'block';
+				if(navbarHidden.className === "collapse"){
+					navbarHidden.className += " mobile";
+					document.body.className += " mobile";
+				}
+				else if(navbarHidden.className === "collapse display"){
+					navbarHidden.className -= " display";
+					navbarHidden.className += " display";
+				}
+				else{
+					navbarHidden.className = "collapse";
+					document.body.className = "static";
+		  		}
+
+		  	}
+			else{
+				document.getElementById('nav-hidden-right').style.display = 'block';
+				document.getElementById('nav-hidden-left').style.display = 'block';
+				document.getElementById('nav-hidden-items').style.gridTemplateAreas = '"nav-hidden-left nav-hidden-right"';
+				document.getElementById('backnav').style.display = 'none';
+				if(navbarHidden.className === "collapse"){
+					navbarHidden.className += " display";
+					document.body.className += " fixed";
+				}
+				else if(navbarHidden.className === "collapse mobile"){
+					navbarHidden.className -= " mobile";
+					navbarHidden.className += " display";
+				}
+				else{
+					navbarHidden.className = "collapse";
+					document.body.className = "static";
+		  		}
+			}			
+		}
+
+		function openTab(event, topic){
+			var i, tablinks, tabcontent;
+
+  			tablinks = document.getElementsByClassName("tablinks");
+			for(i = 0; i < tablinks.length; i++){
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			}
+
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for(i = 0; i < tabcontent.length; i++){
+				tabcontent[i].style.display = "none";
+			}
+
+			if(window.matchMedia("(max-width: 991.98px)").matches){
+				document.getElementById(topic).style.display = "block";
+	  			event.currentTarget.className += " active";	
+				document.getElementById('nav-hidden-right').style.display = 'block';
+				document.getElementById('nav-hidden-items').style.gridTemplateAreas = '"nav-hidden-right"';
+				document.getElementById('nav-hidden-left').style.display = 'none';
+
+			}
+			else{
+				document.getElementById(topic).style.display = "block";
+	  			event.currentTarget.className += " active";	
+				document.getElementById('nav-hidden-right').style.display = 'block';
+				document.getElementById('nav-hidden-left').style.display = 'block';
+				document.getElementById('nav-hidden-items').style.gridTemplateAreas = '"nav-hidden-left nav-hidden-right"';
+			}		
+		}
+		document.getElementById('default').click();
+
+		function backNav(){
+			document.getElementById('nav-hidden-right').style.display = 'none';
+			document.getElementById('nav-hidden-left').style.display = 'block';
+			document.getElementById('nav-hidden-items').style.gridTemplateAreas = '"nav-hidden-left"';
+			document.getElementById('backnav').style.display = 'block';
+		}
+	</script>
+</body>
+</html>
