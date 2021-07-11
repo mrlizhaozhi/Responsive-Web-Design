@@ -11,26 +11,26 @@
 
 		/*navbar-shown*/
 		#navbar-shown{width: 100%; display: inline-block; background: #0a314d;}
-		#open-menu{width: 80px; height:  auto; vertical-align: middle;  display: inline;}
-		#site-logo{width: 100px; height:  auto; vertical-align: middle;}
+		#open-menu{width: auto; height: 30px; vertical-align: middle;  margin-right: 10px; display: inline;}
+		#site-logo{width: auto; height: 80px; vertical-align: middle; margin-right: 10px;}
 		#nav-topics {display: inline-block;}
 		#nav-topics li{display: inline;}
 		#nav-topics a{color: white; text-decoration: none; text-transform:  uppercase; margin-right: 15px; font-size: 14px;}
 		#nav-topics a:hover{color: grey;}
 
 		/*navbar-hidden*/
-		#nav-hidden-left{grid-area: nav-hidden-left; overflow: auto;}
-		#nav-hidden-left ul{list-style-type: none; overflow: auto;}
+		#nav-hidden-left{grid-area: nav-hidden-left; padding-left: 250px; overflow: auto;}
+		#nav-hidden-left ul{list-style-type: none; padding-left: 0px;}
 		#nav-hidden-left li{padding-bottom: 20px;}
 		#nav-hidden-left a{color: white; text-decoration: none;}
 		#nav-hidden-left a:hover{color: grey;}
 
-		#nav-hidden-right{grid-area: nav-hidden-right;}
-		#nav-hidden-right ul{list-style-type: none;}
+		#nav-hidden-right{grid-area: nav-hidden-right; padding-left: 100px; overflow: auto;}
+		#nav-hidden-right ul{list-style-type: none; padding-left: 0px;}
 		#nav-hidden-right li{padding-bottom: 20px; color: white;}
 		#nav-hidden-right a{color: white; text-decoration: none;}
 		#nav-hidden-right a:hover{color: grey;}
-		#nav-hidden-right h3{color: white; font-family: 'Georgia';}
+		#nav-hidden-right h1{color: white; font-family: 'Georgia';}
 
 		#nav-hidden-items{display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: "nav-hidden-left nav-hidden-right";}
 
@@ -41,6 +41,8 @@
 		body.fixed{position: fixed;}
 
 		@media(max-width: 991.98px){
+			#nav-hidden-left{padding: 0px;}
+			#nav-hidden-right{padding: 0px;}
 			#navbar-hidden.collapse {display: none;}
 			#navbar-hidden.mobile{display: block;}
 			body.static{position: static;}
@@ -49,20 +51,30 @@
 			#nav-topics{display: none;}
 			#navbar-shown{padding: 5px;}
 			#site-logo{width: auto; height: 50px;}
-			#open-menu{width: auto; height: 50px; float: right;}
+			#open-menu{width: auto; height: 30px; float: right; margin: 5px 0;}
 			#nav-hidden-items{display: grid; grid-template-columns: 1fr; grid-template-areas: "nav-hidden-left";}
 		}
 
 	</style>
 </head>
 <body>
+	<div style="background: #dadada;" id="site-notice"><div id="site-notice-text" class="container" style="color: #333;">The official website of Li Zhaozhi.</div></div>
+	<div id="covid" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://mrlizhaozhi.github.io/img/covid.png'); min-height: 30px; padding: 10px;
+		    background-size: cover; background-repeat: no-repeat;">
+		<div class="container">
+			<h1 style="color: white;">Coronavirus Resources</h1>
+			<a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">Click here for COVID-19 resources from the World Health Organization.</a>
+		</div>
+	</div>
 	<nav>
 		<div id="navbar-shown">
 			<div class="container">
 				<a href="javascript:void(0);" onclick="openNav();">
-					<img id="open-menu" alt="Open Menu" src="media/img/nav-icon.png">
+					<img id="open-menu" alt="Open Menu" src="media/img/open-menu-light-left.png" onload="changeOpenMenu();">
 				</a>
-				<img id="site-logo" alt="Site Logo" src="media/img/logo.png">
+				<a href="https://mrlizhaozhi.github.io" style="text-decoration: none;">
+					<img id="site-logo" alt="Site Logo" src="media/img/site-logo-light.png">
+				</a>
 				<ul id="nav-topics">
 					<li><a href="topics/data-analysis">Data Analysis</a></li>
 					<li><a href="topics/relational-databases">Relational Databases</a></li>
@@ -77,44 +89,44 @@
 				<div id="nav-hidden-items">
 					<div id="nav-hidden-left">
 						<ul id="topic-list">
-							<li><a href="javascript:void(0);" class="tablinks" onclick="openTab(event, 'data-analysis');" id="default">Data Analysis</a></li>
-							<li><a href="javascript:void(0);" class="tablinks" onclick="openTab(event, 'relational-databases');">Relational Databases</a></li>
-							<li><a href="javascript:void(0);" class="tablinks" onclick="openTab(event, 'spreadsheet-modelling');">Spreadsheet Modelling</a></li>
-							<li><a href="javascript:void(0);" class="tablinks" onclick="openTab(event, 'project-management');">Project Management</a></li>
-							<li><a href="javascript:void(0);" class="tablinks" onclick="openTab(event, 'web-development');">Web Development</a></li>
+							<li><a href="javascript:void(0);" class="tablinks" onclick="openTab(event, 'data-analysis');" id="default">Data Analysis ></a></li>
+							<li><a href="javascript:void(0);" class="tablinks" onclick="openTab(event, 'relational-databases');">Relational Databases ></a></li>
+							<li><a href="javascript:void(0);" class="tablinks" onclick="openTab(event, 'spreadsheet-modelling');">Spreadsheet Modelling ></a></li>
+							<li><a href="javascript:void(0);" class="tablinks" onclick="openTab(event, 'project-management');">Project Management ></a></li>
+							<li><a href="javascript:void(0);" class="tablinks" onclick="openTab(event, 'web-development');">Web Development ></a></li>
 						</ul>
 					</div>
 					<div id="nav-hidden-right">
-						<a href="javascript:void(0);" id="backnav" onclick="backNav();">Back</a>
+						<a href="javascript:void(0);" id="backnav" style="border-bottom: 1px solid orange; padding: 20px 0px;" onclick="backNav();">< Back to Main Menu</a>
 						<div id="data-analysis" class="tabcontent">
-							<ul>
-								<li><h3>Data Analysis</h3></li>
+							<ul style="padding-left: 0px;">
+								<li><h1>Data Analysis</h1></li>
 								<li><a href="https://github.com/mrlizhaozhi/python-crash-course">Python Crash Course</a></li>
 								<li><a href="https://github.com/mrlizhaozhi/python-for-data-visualisation">Python for Data Visualisation</a></li>
 								<li><a href="https://github.com/mrlizhaozhi/statistical-learning-with-applications-in-r">Statistical Learning with Applications in R</a></li>
 							</ul>
 						</div>
 						<div id="relational-databases" class="tabcontent">
-							<ul>
-								<li><h3>Relational Databases</h3></li>
+							<ul style="padding-left: 0px;">
+								<li><h1>Relational Databases</h1></li>
 								<li><a href="https://github.com/mrlizhaozhi/relational-database-with-sql">Relational Database with SQL</a></li>
 							</ul>
 						</div>
 						<div id="spreadsheet-modelling" class="tabcontent">
-							<ul>
-								<li><h3>Spreadsheet Modelling</h3></li>
+							<ul style="padding-left: 0px;">
+								<li><h1>Spreadsheet Modelling</h1></li>
 								<li><a href="https://mrlizhaozhi.github.io/research/github.com/mrlizhaozhi/excel-vba-for-spreadsheet-modelling/">Excel VBA for Spreadsheet Modelling</a></li>
 							</ul>
 						</div>
 						<div id="project-management" class="tabcontent">
-							<ul>
-								<li><h3>Project Management</h3></li>
+							<ul style="padding-left: 0px;">
+								<li><h1>Project Management</h1></li>
 								<li>Coming Soon...</li>
 							</ul>
 						</div>
 						<div id="web-development" class="tabcontent">
-							<ul>
-								<li><h3>Web Development</h3></li>
+							<ul style="padding-left: 0px;">
+								<li><h1>Web Development</h1></li>
 								<li><a href="https://github.com/mrlizhaozhi/mrlizhaozhi.github.io">The Official Website of Li Zhaozhi</a></li>
 								<li><a href="https://github.com/mrlizhaozhi/mrlizhaozhi.github.io/tree/main/research">Li Zhaozhi Research Laboratories</a></li>
 								<li><a href="https://github.com/mrlizhaozhi/responsive-web-design/tree/main/front-end">Responsive Web Design: Front End</a></li>
@@ -141,14 +153,23 @@
 				if(navbarHidden.className === "collapse"){
 					navbarHidden.className += " mobile";
 					document.body.className += " mobile";
+					document.getElementById('site-notice').style.background = "#0a314d";
+					document.getElementById('site-notice-text').style.color = "#0a314d";
+					document.getElementById('covid').style.display = 'none';
 				}
 				else if(navbarHidden.className === "collapse display"){
 					navbarHidden.className -= " display";
 					navbarHidden.className += " display";
+					document.getElementById('site-notice').style.background = "#0a314d";
+					document.getElementById('site-notice-text').style.color = "#0a314d";
+					document.getElementById('covid').style.display = 'none';
 				}
 				else{
 					navbarHidden.className = "collapse";
 					document.body.className = "static";
+					document.getElementById('site-notice').style.background = "#dadada";
+					document.getElementById('site-notice-text').style.color = "rgb(51, 51, 51)";
+					document.getElementById('covid').style.display = 'block';
 		  		}
 
 		  	}
@@ -160,14 +181,23 @@
 				if(navbarHidden.className === "collapse"){
 					navbarHidden.className += " display";
 					document.body.className += " fixed";
+					document.getElementById('site-notice').style.background = "#0a314d";
+					document.getElementById('site-notice-text').style.color = "#0a314d";
+					document.getElementById('covid').style.display = 'none';
 				}
 				else if(navbarHidden.className === "collapse mobile"){
 					navbarHidden.className -= " mobile";
 					navbarHidden.className += " display";
+					document.getElementById('site-notice').style.background = "#0a314d";
+					document.getElementById('site-notice-text').style.color = "#0a314d";
+					document.getElementById('covid').style.display = 'none';
 				}
 				else{
 					navbarHidden.className = "collapse";
 					document.body.className = "static";
+					document.getElementById('site-notice').style.background = "#dadada";
+					document.getElementById('site-notice-text').style.color = "rgb(51, 51, 51)";
+					document.getElementById('covid').style.display = 'block';
 		  		}
 			}			
 		}
@@ -208,6 +238,14 @@
 			document.getElementById('nav-hidden-left').style.display = 'block';
 			document.getElementById('nav-hidden-items').style.gridTemplateAreas = '"nav-hidden-left"';
 			document.getElementById('backnav').style.display = 'block';
+		}
+
+		function changeOpenMenu() {
+		  if (window.matchMedia("(max-width: 991.98px)").matches) { 
+		    document.getElementById('open-menu').style.src = "media/img/open-menu-light-right.png";
+		  } else {
+		    document.getElementById('open-menu').style.src = "media/img/open-menu-light-left.png";
+		  }
 		}
 	</script>
 </body>
