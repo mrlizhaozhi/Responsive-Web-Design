@@ -61,10 +61,10 @@
 		<div id="navbar-shown">
 			<div class="container">
 				<a href="javascript:void(0);" onclick="openNav();">
-					<img id="open-menu" alt="Open Menu" src="media/img/open-menu-light-left.png">
+					<img id="open-menu" alt="Open Menu" src="img/open-menu-light-left.png">
 				</a>
 				<a href="https://mrlizhaozhi.github.io">
-					<img id="site-logo" alt="Site Logo" src="media/img/site-logo-dark.png">
+					<img id="site-logo" alt="Site Logo" src="img/site-logo-dark.png">
 				</a>
 				<ul id="nav-topics">
 					<li><a class="nav-topics-links" href="topics/data-analysis">Data Analysis</a></li>
@@ -144,10 +144,12 @@
 				if(navbarHidden.className === "collapse"){
 					navbarHidden.className += " display";
 					document.body.style.position = "fixed";
+					document.getElementById('open-menu').src = 'img/open-menu-light-left.png';
 				}
 				else{
 					navbarHidden.className = "collapse";
 					document.body.style.position = "static";
+					document.getElementById('open-menu').src = 'img/close-menu-light.png';
 		  		}
 
 		  	}
@@ -159,10 +161,12 @@
 				if(navbarHidden.className === "collapse"){
 					navbarHidden.className += " display";
 					document.body.style.position = "fixed";
+					document.getElementById('open-menu').src = 'img/close-menu-light.png';
 				}
 				else{
 					navbarHidden.className = "collapse";
 					document.body.style.position = "static";
+					document.getElementById('open-menu').src = 'img/open-menu-light-left.png';
 		  		}
 			}			
 		}
