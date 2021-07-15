@@ -9,14 +9,17 @@
 		.container{padding: 10px 50px; max-width: 1250px; margin: 0 auto;}
 		nav{width: 100%; height: 100vh; top: 0; z-index: 10;}
 
+		/*navbar-top*/
+		#navbar-top{background: #062135; height: 40px;}
+
 		/*navbar-shown*/
 		#navbar-shown{width: 100%; display: inline-block; background: #0a314d;}
-		#open-menu{width: auto; height: 30px; vertical-align: middle;  margin-right: 10px; display: inline;}
-		#site-logo{width: auto; height: 80px; vertical-align: middle; margin-right: 10px;}
+		#open-menu{width: auto; height: 30px; vertical-align: middle;  margin-right: 10px; display: inline-block;}
+		#site-logo{width: auto; height: 80px; vertical-align: middle; margin-right: 10px; margin-top: -50px; display: inline-block;}
 		#nav-topics {display: inline-block;}
 		#nav-topics li{display: inline;}
-		#nav-topics a{color: white; text-decoration: none; text-transform:  uppercase; margin-right: 15px; font-size: 14px;}
-		#nav-topics a:hover{color: grey;}
+		.nav-topics-links{color: white; text-decoration: none; text-transform:  uppercase; margin-right: 15px; font-size: 14.5px;}
+		.nav-topics-links:hover{color: grey;}
 
 		/*navbar-hidden*/
 		#nav-hidden-left{grid-area: nav-hidden-left; padding-left: 250px; overflow: auto;}
@@ -37,50 +40,38 @@
 		#navbar-hidden{width: 100%; height: 100%; padding: 5px; background: #0a314d;}
 		#navbar-hidden.collapse{display: none;}
 		#navbar-hidden.display {display: block;}
-		body.static{position: static;}
-		body.fixed{position: fixed;}
 
 		@media(max-width: 991.98px){
+			#navbar-top{background: #062135; height: 25px;}
 			#nav-hidden-left{padding: 0px;}
 			#nav-hidden-right{padding: 0px;}
-			#navbar-hidden.collapse {display: none;}
-			#navbar-hidden.mobile{display: block;}
-			body.static{position: static;}
-			body.mobile{position: fixed;}
 			.container{padding: 0 30px; max-width: 991.98px;}
 			#nav-topics{display: none;}
-			#navbar-shown{padding: 5px;}
-			#site-logo{width: auto; height: 50px;}
-			#open-menu{width: auto; height: 30px; float: right; margin: 5px 0;}
+			#navbar-shown{padding: 5px; text-align: center;}
+			#site-logo{width: auto; height: 60px; margin-right: 20px; margin-top: -20px;}
+			#open-menu{width: auto; height: 25px; float: left; margin: 10px 0px;}
 			#nav-hidden-items{display: grid; grid-template-columns: 1fr; grid-template-areas: "nav-hidden-left";}
 		}
 
 	</style>
 </head>
 <body>
-	<div style="background: #dadada;" id="site-notice"><div id="site-notice-text" class="container" style="color: #333;">The official website of Li Zhaozhi.</div></div>
-	<div id="covid" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://mrlizhaozhi.github.io/img/covid.png'); min-height: 30px; padding: 10px;
-		    background-size: cover; background-repeat: no-repeat;">
-		<div class="container">
-			<h1 style="color: white;">Coronavirus Resources</h1>
-			<a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">Click here for COVID-19 resources from the World Health Organization.</a>
-		</div>
-	</div>
 	<nav>
+		<div id="navbar-top"></div>
 		<div id="navbar-shown">
 			<div class="container">
 				<a href="javascript:void(0);" onclick="openNav();">
-					<img id="open-menu" alt="Open Menu" src="media/img/open-menu-light-left.png" onload="changeOpenMenu();">
+					<img id="open-menu" alt="Open Menu" src="media/img/open-menu-light-left.png">
 				</a>
-				<a href="https://mrlizhaozhi.github.io" style="text-decoration: none;">
-					<img id="site-logo" alt="Site Logo" src="media/img/site-logo-light.png">
+				<a href="https://mrlizhaozhi.github.io">
+					<img id="site-logo" alt="Site Logo" src="media/img/site-logo-dark.png">
 				</a>
 				<ul id="nav-topics">
-					<li><a href="topics/data-analysis">Data Analysis</a></li>
-					<li><a href="topics/relational-databases">Relational Databases</a></li>
-					<li><a href="topics/spreadsheet-modelling">Spreadsheet Modelling</a></li>
-					<li><a href="topics/project-management">Project Management</a></li>
-					<li><a href="topics/web-development">Web Development</a></li>
+					<li><a class="nav-topics-links" href="topics/data-analysis">Data Analysis</a></li>
+					<li><a class="nav-topics-links" href="topics/relational-databases">Relational Databases</a></li>
+					<li><a class="nav-topics-links" href="topics/spreadsheet-modelling">Spreadsheet Modelling</a></li>
+					<li><a class="nav-topics-links" href="topics/project-management">Project Management</a></li>
+					<li><a class="nav-topics-links" href="topics/web-development">Web Development</a></li>
 				</ul>
 			</div>
 		</div>
@@ -151,25 +142,12 @@
 				document.getElementById('nav-hidden-items').style.gridTemplateAreas = '"nav-hidden-left"';
 				document.getElementById('backnav').style.display = 'block';
 				if(navbarHidden.className === "collapse"){
-					navbarHidden.className += " mobile";
-					document.body.className += " mobile";
-					document.getElementById('site-notice').style.background = "#0a314d";
-					document.getElementById('site-notice-text').style.color = "#0a314d";
-					document.getElementById('covid').style.display = 'none';
-				}
-				else if(navbarHidden.className === "collapse display"){
-					navbarHidden.className -= " display";
 					navbarHidden.className += " display";
-					document.getElementById('site-notice').style.background = "#0a314d";
-					document.getElementById('site-notice-text').style.color = "#0a314d";
-					document.getElementById('covid').style.display = 'none';
+					document.body.style.position = "fixed";
 				}
 				else{
 					navbarHidden.className = "collapse";
-					document.body.className = "static";
-					document.getElementById('site-notice').style.background = "#dadada";
-					document.getElementById('site-notice-text').style.color = "rgb(51, 51, 51)";
-					document.getElementById('covid').style.display = 'block';
+					document.body.style.position = "static";
 		  		}
 
 		  	}
@@ -180,24 +158,11 @@
 				document.getElementById('backnav').style.display = 'none';
 				if(navbarHidden.className === "collapse"){
 					navbarHidden.className += " display";
-					document.body.className += " fixed";
-					document.getElementById('site-notice').style.background = "#0a314d";
-					document.getElementById('site-notice-text').style.color = "#0a314d";
-					document.getElementById('covid').style.display = 'none';
-				}
-				else if(navbarHidden.className === "collapse mobile"){
-					navbarHidden.className -= " mobile";
-					navbarHidden.className += " display";
-					document.getElementById('site-notice').style.background = "#0a314d";
-					document.getElementById('site-notice-text').style.color = "#0a314d";
-					document.getElementById('covid').style.display = 'none';
+					document.body.style.position = "fixed";
 				}
 				else{
 					navbarHidden.className = "collapse";
-					document.body.className = "static";
-					document.getElementById('site-notice').style.background = "#dadada";
-					document.getElementById('site-notice-text').style.color = "rgb(51, 51, 51)";
-					document.getElementById('covid').style.display = 'block';
+					document.body.style.position = "static";
 		  		}
 			}			
 		}
@@ -238,14 +203,6 @@
 			document.getElementById('nav-hidden-left').style.display = 'block';
 			document.getElementById('nav-hidden-items').style.gridTemplateAreas = '"nav-hidden-left"';
 			document.getElementById('backnav').style.display = 'block';
-		}
-
-		function changeOpenMenu() {
-		  if (window.matchMedia("(max-width: 991.98px)").matches) { 
-		    document.getElementById('open-menu').style.src = "media/img/open-menu-light-right.png";
-		  } else {
-		    document.getElementById('open-menu').style.src = "media/img/open-menu-light-left.png";
-		  }
 		}
 	</script>
 </body>
